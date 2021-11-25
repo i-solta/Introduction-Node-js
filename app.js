@@ -1,31 +1,66 @@
-// //   arguments=process.argv.slice(2)
-// // const sum=arguments.reduce((acc,val)=>Number(acc)+Number(val))
-// // console.log(sum)
+// const addd=require("./work")
 
+// // 1
+// console.log("hello from ws node")
 
-// // const fs = require("fs")//globale module
-// // var contents = fs.readFileSync(process.argv[2])  
+// console.log(addd.name)
+// console.log(module)
+// addd.add(2,3)
 
-// // const read= fs.readFileSync('./work.js')
-// // //console.log(read.toString())
-// // const arrayOfStrings=content.toString().split("\n")
-// // console.log(arrayOfStrings.length - 1)
+// const path=require("path")
 
+// console.log(path.extname(__filename))
 
-// const fs = require("fs")//globale module
-// fs.readFile(process.argv[2],'utf8',(err,data)=>{
-    
-// })  
+const fs =require("fs")
 
+    //create a file
+    fs.writeFile("exempla.txt","this is an exmeple",err=>{
+        if(err){console.log(err)}  else{
+            console.log("created with success")
+            fs.readFile("exempla.txt","utf8",(err,file)=>{
+                if(err){
+                    console.log(err)
+                }else{
+                    console.log(file)
+                }
+            })
+        } 
+            
+            
+    })
+    //  rename file
+    // fs.rename("exemplee.txt","exemple.txt",err=>{
+    //     err ?console.log(err) : console.log("renamed succesfuly") 
+    // })
 
-// //console.log(read.toString())
-// const arrayOfStrings=content.toString().split("\n")
-// console.log(arrayOfStrings.length - 1)
+   
+    //delete file 
+    // fs.unlink("exemple.txt",err=>{
+    //     err? console.log(err): console.log("deleted success") 
+    // })
 
-const buf = Buffer.from('Hey!')
-console.log(buf)
-
-const buff = Buffer.from('Hey!')
-console.log(buff[0]) //72
-console.log(buff[1]) //101
-console.log(buff[2]) //121
+    // cretae directory 
+    // fs.mkdir("work",err=>{
+    //     if(err){
+    //         console.log(err)
+    //     }else{
+    //         console.log("folder created")
+    //         fs.writeFile("./work/work.txt","workkkkkk",err=>{
+    //             if(err){
+    //                 console.log(err)
+    //             }else{
+    //                 console.log("cretetd  file in folder")
+    //             }
+    //         })
+    //     }
+    // })
+    // Delete folder
+    const http=require("http")
+  
+    const serve=http.createServer((req,res)=>{
+        res.write("hello world")
+        res.end()
+    })
+    serve.listen(3000,"127.0.0.1",()=>{
+        console.log("server running on port 3000")
+    })
